@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zachary and Sam | Fighting Poverty Together</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #172b3a;
+    background: white;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255,255,255,.97);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,.06);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #153c58;
+}
+
+.logo span { color: #36a77a; }
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #263b4b;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover { color: #36a77a; }
+
+.btn {
+    display: inline-block;
+    background: #36a77a;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #25845e;
+    transform: translateY(-2px);
+}
+
+.hero {
+    min-height: 730px;
+    padding: 150px 8% 90px;
+    display: flex;
+    align-items: center;
+    background:
+    linear-gradient(90deg,rgba(9,35,52,.91),rgba(9,35,52,.45)),
+    url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content { max-width: 700px; }
+
+.hero small {
+    color: #80dfb4;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(42px,6vw,72px);
+    line-height: 1.1;
+    margin: 22px 0;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #e1e9ed;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+section { padding: 95px 8%; }
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 50px;
+}
+
+.section-heading small {
+    color: #36a77a;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin: 12px 0;
+    color: #153c58;
+}
+
+.section-heading p { color: #71808b; }
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.about h2 {
+    font-size: 38px;
+    color: #153c58;
+    margin-bottom: 20px;
+}
+
+.about p {
+    color: #687987;
+    margin-bottom: 18px;
+}
+
+.mission { background: #f3f8f6; }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 35px 28px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.04);
+    transition: .3s;
+}
+
+.card:hover { transform: translateY(-7px); }
+
+.card .icon {
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    color: #153c58;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #71808b;
+    font-size: 15px;
+}
+
+.impact {
+    background: #153c58;
+    color: white;
+    text-align: center;
+}
+
+.impact h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.impact p {
+    color: #d0dce3;
+    max-width: 650px;
+    margin: auto;
+}
+
+.impact-stats {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 45px;
+    flex-wrap: wrap;
+}
+
+.stat h3 {
+    font-size: 42px;
+    color: #80dfb4;
+}
+
+.stat p { font-size: 14px; }
+
+.join { background: #f3f8f6; }
+
+.join-content {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.join-content h2 {
+    font-size: 40px;
+    color: #153c58;
+    margin-bottom: 18px;
+}
+
+.join-content p {
+    color: #71808b;
+    margin-bottom: 25px;
+}
+
+.donate { text-align: center; }
+
+.donate-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 55px 30px;
+    border-radius: 15px;
+    background: #eaf6ef;
+}
+
+.donate-box h2 {
+    font-size: 37px;
+    color: #153c58;
+    margin-bottom: 15px;
+}
+
+.donate-box p {
+    color: #60766a;
+    margin-bottom: 25px;
+}
+
+.contact { background: #f3f8f6; }
+
+.contact-container {
+    max-width: 650px;
+    margin: auto;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dce5e0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.contact-container textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+.contact-container button {
+    width: 100%;
+    font-size: 16px;
+}
+
+footer {
+    background: #102d40;
+    color: white;
+    padding: 45px 8%;
+    text-align: center;
+}
+
+footer .logo {
+    color: white;
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: #b7c6ce;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+@media(max-width:800px) {
+    header {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    nav a { font-size: 12px; }
+
+    .about { grid-template-columns: 1fr; }
+
+    .cards { grid-template-columns: 1fr; }
+
+    .hero { min-height: 650px; }
+
+    .impact-stats { gap: 35px; }
+}
+
+@media(max-width:480px) {
+    header { justify-content: center; }
+
+    nav { justify-content: center; }
+
+    .hero h1 { font-size: 43px; }
+
+    section { padding: 70px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Zachary <span>&</span> Sam</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#join">Join Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <small>Together, We Can Make A Difference</small>
+
+        <h1>A Better World Starts With Us.</h1>
+
+        <p>
+            Poverty affects millions of people around the world.
+            We believe everyone deserves food, education,
+            opportunities and a chance for a better future.
+            Join Zachary and Sam and become part of the change.
+        </p>
+
+        <a href="#join" class="btn">Join Our Mission →</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about">
+
+        <img
+        src="https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=1000&q=85"
+        alt="Community helping each other">
+
+        <div>
+            <small style="color:#36a77a;font-weight:bold;">
+                WHO WE ARE
+            </small>
+
+            <h2>Small Actions. Big Changes.</h2>
+
+            <p>
+                Zachary and Sam is an initiative created to
+                encourage people to take action against poverty.
+            </p>
+
+            <p>
+                We believe that helping others does not always
+                require a lot of money. Giving your time,
+                sharing resources and supporting communities
+                can make a real difference.
+            </p>
+
+            <p>
+                Our goal is to bring people together and create
+                a world where everyone has the opportunity
+                to live with dignity.
+            </p>
+
+            <a href="#mission" class="btn">Discover Our Mission</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+
+    <div class="section-heading">
+        <small>WHAT WE BELIEVE IN</small>
+        <h2>Our Mission</h2>
+        <p>
+            We want to create positive change by focusing
+            on the things that matter most.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🍎</div>
+            <h3>Fight Hunger</h3>
+            <p>
+                Encourage food donations and support people
+                who struggle to afford basic meals.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Education For All</h3>
+            <p>
+                Help children access school supplies,
+                books and educational opportunities.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Community Support</h3>
+            <p>
+                Bring people together to support families
+                and communities facing difficult situations.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💧</div>
+            <h3>Clean Water</h3>
+            <p>
+                Raise awareness about access to safe
+                and clean drinking water.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">❤️</div>
+            <h3>Human Dignity</h3>
+            <p>
+                Treat everyone with respect, kindness
+                and equal opportunities.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h3>Global Awareness</h3>
+            <p>
+                Educate people about poverty and inspire
+                them to become part of the solution.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+    <h2>Every Action Matters.</h2>
+
+    <p>
+        You do not have to change the entire world
+        in one day. You just have to make a difference
+        in someone's life.
+    </p>
+
+    <div class="impact-stats">
+        <div class="stat">
+            <h3>1</h3>
+            <p>World to Change</p>
+        </div>
+
+        <div class="stat">
+            <h3>1,000s</h3>
+            <p>Of Ways to Help</p>
+        </div>
+
+        <div class="stat">
+            <h3>100%</h3>
+            <p>Commitment to Change</p>
+        </div>
+    </div>
+</section>
+
+<!-- JOIN -->
+<section class="join" id="join">
+    <div class="join-content">
+
+        <small style="color:#36a77a;font-weight:bold;">
+            BECOME PART OF SOMETHING BIGGER
+        </small>
+
+        <h2>Be The Change You Want To See.</h2>
+
+        <p>
+            You can help by volunteering, spreading awareness,
+            donating useful items or encouraging others
+            to support people in need.
+        </p>
+
+        <a href="#contact" class="btn">I Want To Help →</a>
+
+    </div>
+</section>
+
+<!-- DONATE -->
+<section class="donate" id="donate">
+    <div class="donate-box">
+
+        <h2>Give Hope. Make A Difference.</h2>
+
+        <p>
+            Every contribution can help someone.
+            Whether it is food, clothing, school supplies
+            or your time, your support matters.
+        </p>
+
+        <a href="#contact" class="btn">Support Our Cause</a>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="section-heading">
+        <small>GET IN TOUCH</small>
+        <h2>Join Zachary and Sam</h2>
+
+        <p>
+            Interested in helping? Have an idea?
+            We would love to hear from you.
+        </p>
+    </div>
+
+    <div class="contact-container">
+
+        <form id="contactForm">
+
+            <input
+                type="text"
+                id="contactName"
+                name="name"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                placeholder="Your Email"
+                required>
+
+            <input
+                type="text"
+                id="contactSubject"
+                name="subject"
+                placeholder="Subject">
+
+            <textarea
+                id="contactMessage"
+                name="message"
+                placeholder="Tell us how you would like to help..."
+                required></textarea>
+
+            <button type="submit" class="btn">
+                Send Message →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="logo">Zachary <span>&</span> Sam</div>
+
+    <p>Fighting poverty. Building hope. Creating change.</p>
+
+    <p>© 2026 Zachary and Sam. All rights reserved.</p>
+
+    <p>Made with purpose. Made for people.</p>
+
+</footer>
+
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim() || "New message - Zachary and Sam";
+    const message = document.getElementById("contactMessage").value.trim();
+
+    const emailBody =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        "Message:\n" + message;
+
+    const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent("samuel.ryckaert@gmail.com") +
+        "&su=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(emailBody);
+
+    // Open Gmail's compose window with the recipient and message already filled in.
+    const gmailWindow = window.open(gmailUrl, "_blank");
+
+    // If the browser blocks the new tab, open Gmail in the current tab instead.
+    if (!gmailWindow) {
+        window.location.href = gmailUrl;
+    }
+});
+</script>
+\n</body>
+</html>
